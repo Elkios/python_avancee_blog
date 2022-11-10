@@ -1,0 +1,13 @@
+<!-- posts/templates/posts/blogpost_detail.html -->
+{% extends './base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>Éditer l'article</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Éditer">
+</form>
+{% endblock %}

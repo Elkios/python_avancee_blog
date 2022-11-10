@@ -1,0 +1,23 @@
+<!-- posts/templates/posts/blogpost_list.html -->
+{% extends './base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="row ">
+            {% for post in posts %}
+            <a href="article/{{ post.id }}" class="mx-2 my-2 col-3 position-relative" style="width: 25em; height: 25em; overflow-y: hidden; background-image: url('{{ post.thumbnail }}'); background-size: cover">
+                <div class="position-absolute bg-white bottom-0 end-0 px-8 py-4 text-center d-flex flex-column " style="width: 80%">
+                    <div class="text-danger text" style="font-size: 0.8em">{{post.category}}</div>
+                    <div class="text-uppercase fw-bold">{{post.title}}</div>
+                     <div class="fst-italic" style="font-size: 0.8em">
+                         <span class="fw-bold">{{post.date|date:'j F Y' }}</span>
+                         <span>- {{post.author}}</span>
+                     </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
